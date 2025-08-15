@@ -191,7 +191,7 @@ const tips = [
 "   ██║   ██╔══██║██╔══╝      ██╔══╝     ███║   ██╔══╝  ",
 "   ██║   ██║  ██║███████╗    ███████║   ███║   ███████╗",
 "   ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚══════╝    ╚═╝   ╚══════╝",
-    `        THE EYE CYBERSEC CLUB`  ];
+    `             THE EYE CYBERSEC CLUB`  ];
   useEffect(() => {
     if (introRanRef.current) return; 
     introRanRef.current = true;
@@ -202,7 +202,9 @@ const tips = [
         i++;
         setTimeout(typeIntro, 900);
       } else {
-        setIntroDone(true);
+  setIntroDone(true);
+  // Auto-run 'banner' by default once intro finishes
+  setLog((prev) => [...prev, "$ banner", bannerArt.join("\n")]);
       }
     };
     typeIntro();
