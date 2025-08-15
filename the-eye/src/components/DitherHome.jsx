@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import TypographySystem from './TypographySystem';
 import './DitherHome.css';
 import TerminalOverlay from './TerminalOverlay';
@@ -67,7 +68,9 @@ export default function DitherHome() {
 
             {/* HERO ACTIONS */}
             <div className="dh-actions">
-              
+              <Link to="/join" className="retro-button dh-primary" aria-label="Join the community">
+                <TypographySystem.Button>JOIN THE COMMUNITY</TypographySystem.Button>
+              </Link>
               <button className="retro-button dh-secondary" aria-label="Explore events">
                 <TypographySystem.Button>EXPLORE EVENTS</TypographySystem.Button>
               </button>
