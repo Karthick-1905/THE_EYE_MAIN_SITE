@@ -1,0 +1,3 @@
+.to-overlay{position:fixed;inset:0;z-index:10000;display:grid;place-items:center}
+.to-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(2px)}
+.to-panel{position:relative;width:min(900px,calc(100% - 32px));padding:12px;border-radius:10px;background:var(--panel);border:1px solid rgba(255,255,255,0.08);box-shadow:0 20px 80px rgba(0,0,0,0.6)}
