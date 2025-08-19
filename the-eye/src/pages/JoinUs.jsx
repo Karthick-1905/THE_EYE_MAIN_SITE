@@ -3,7 +3,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import TypographySystem from "../components/TypographySystem";
 import ErrorBoundary from "../components/ErrorBoundary";
 import Lanyard from "../components/Lanyard/Lanyard";
-import "../components/typography-system.css";
+import "../css/typography_system.css";
 import "../css/joinus.css";
 
 export default function JoinUs() {

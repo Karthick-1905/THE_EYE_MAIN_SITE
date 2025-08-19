@@ -40,7 +40,7 @@ export default function DitherHome() {
               <circle cx="50" cy="50" r="12" fill="currentColor" />
             </svg>
             <img src={tplogo} alt="THE EYE logo" style={{ height: 64, width: 'auto' }} />
-            {/* <Logo /> */}
+            <Logo />
           </div>
 
           

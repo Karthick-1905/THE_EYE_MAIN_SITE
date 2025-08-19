@@ -1,5 +1,5 @@
 import React from "react";
-import TypographySystem from "./TypographySystem";
+import TypographySystem from "../components/TypographySystem";
 import "../css/CommandCenter.css";
 
 export default function CommandCenter() {
