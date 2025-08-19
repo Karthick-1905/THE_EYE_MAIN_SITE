@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import TypographySystem from './TypographySystem';
-import './DitherHome.css';
-import TerminalOverlay from './TerminalOverlay';
-import Logo from './Logo';
+import TypographySystem from '../components/TypographySystem';
+import '../css/DitherHome.css';
+import TerminalOverlay from '../components/TerminalOverlay';
+import Logo from '../components/Logo';
 import LOGO_FINAL_SQUARE from '../assets/LOGO_FINAL_SQUARE.png';
 import tplogo from '../assets/tplogo.png';
 

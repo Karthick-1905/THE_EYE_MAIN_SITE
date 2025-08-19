@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Terminal from './Terminal';
 import ErrorBoundary from './ErrorBoundary';
-import './TerminalOverlay.css';
+import '../css/TerminalOverlay.css';
 
 export default function TerminalOverlay({ open, onClose }) {
   useEffect(() => {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./Terminal.css";
+import "../css/Terminal.css";
 
 const fileSystem = {
   home: {

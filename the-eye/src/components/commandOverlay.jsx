@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./CommandOverlay.css"; // We'll define styles here
+import "../css/CommandOverlay.css"; // We'll define styles here
 
 const CommandOverlay = () => {
   const [commands, setCommands] = useState([]);
