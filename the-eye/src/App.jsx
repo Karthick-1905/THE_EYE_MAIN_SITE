@@ -1,12 +1,11 @@
 import Dither from "./components/Dither";
-import DitherHome from "./components/DitherHome";
-import CommandCenter from "./components/CommandCenter";
+import DitherHome from "./pages/DitherHome";
+import CommandCenter from "./pages/CommandCenter";
 import JoinUs from "./pages/JoinUs";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import DitherEventPage from "./components/DietherEventsPage";
 // import EventsRetro from "./components/EventsRetro";
 
-import "./App.css";
 
 function App() {
   return (

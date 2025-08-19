@@ -29,12 +29,13 @@ export default function IntroLogo() {
     
 
     // prepare each path for stroke drawing
-    paths.forEach((p, index) => {
+    paths.forEach((p) => {
       let len;
       try {
         len = p.getTotalLength();
       } catch (e) {
         // fallback for non-paths
+        console.log(e)
         len = 300;
       }
       p.style.strokeDasharray = len;

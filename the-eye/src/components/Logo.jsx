@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function Logo({ width = 50, height = 74, className = '', title = 'THE EYE Logo' }) {
 	return (
 		<div className={`svglogo ${className}`.trim()} aria-label={title} role="img">

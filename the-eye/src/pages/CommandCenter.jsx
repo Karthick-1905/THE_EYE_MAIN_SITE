@@ -1,6 +1,6 @@
 import React from "react";
-import TypographySystem from "./TypographySystem";
-import "./CommandCenter.css";
+import TypographySystem from "../components/TypographySystem";
+import "../css/CommandCenter.css";
 
 export default function CommandCenter() {
   const agents = [

@@ -1,4 +1,4 @@
-import './typography-system.css';
+import '../css/typography_system.css';
 
 const TypographySystem = {
   DisplayLarge: ({ children, className = '', ...props }) => (
