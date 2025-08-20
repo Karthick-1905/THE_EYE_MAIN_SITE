@@ -6,6 +6,8 @@ import TerminalOverlay from '../components/TerminalOverlay';
 import Logo from '../components/Logo';
 import LOGO_FINAL_SQUARE from '../assets/LOGO_FINAL_SQUARE.png';
 import tplogo from '../assets/tplogo.png';
+import CometCardDemo from '../components/comet-card-demo';
+// import DraggableCardDemo from '@/components/draggable-card-demo';
 
 
 export default function DitherHome() {
@@ -40,7 +42,7 @@ export default function DitherHome() {
               <circle cx="50" cy="50" r="12" fill="currentColor" />
             </svg>
             <img src={tplogo} alt="THE EYE logo" style={{ height: 64, width: 'auto' }} />
-            <Logo />
+            {/* <Logo /> */}
           </div>
 
           
@@ -65,7 +67,7 @@ export default function DitherHome() {
             <TypographySystem.BodyLarge className="dh-hero-subtitle">
                 THE EYE is a cybersecurity & ethical hacking club focused on hands-on learning, capture-the-flag (CTF) challenges, defensive/blue-team practice, and responsible disclosure culture. Dive in, learn, build, defend.
               </TypographySystem.BodyLarge>
-
+            <br />
             {/* HERO ACTIONS */}
             <div className="dh-actions">
               <Link to="/join" className="retro-button dh-primary" aria-label="Join the community">
@@ -95,7 +97,26 @@ export default function DitherHome() {
           <div className="dh-hero-right">
 
             {/* STATUS PANEL */}
-            
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                width: '100%',
+                maxWidth: 360,
+              }}
+            >
+              <CometCardDemo />
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                width: '100%',
+                maxWidth: 360,
+              }}
+            >
+
+            </div>
             <div className="dh-panel" aria-label="System status panel">
               {[
                 [
@@ -125,7 +146,7 @@ export default function DitherHome() {
         {/* FOOTER */}
         <footer className="dh-footer">
           <TypographySystem.BodySmall>
-            © THE EYE — retro-future observatory
+            © THE EYE — Visio Protectoris
           </TypographySystem.BodySmall>
         </footer>
       </div>

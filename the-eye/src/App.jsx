@@ -3,11 +3,13 @@ import DitherHome from "./pages/DitherHome";
 import CommandCenter from "./pages/CommandCenter";
 import JoinUs from "./pages/JoinUs";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CometCard } from "./components/ui/comet-card";
+import CometCardDemo from "./components/comet-card-demo";
 // import DitherEventPage from "./components/DietherEventsPage";
 // import EventsRetro from "./components/EventsRetro";
 
 
-function App() {
+function  App() {
   return (
     <BrowserRouter>
       <div style={{
@@ -19,7 +21,7 @@ function App() {
         zIndex: -1
       }}>
         <Dither
-          waveColor={[0.5, 0.5, 0.5]}
+          waveColor={[0.3, 0.3, 0.3]}
           disableAnimation={false}
           enableMouseInteraction={true}
           mouseRadius={.05}

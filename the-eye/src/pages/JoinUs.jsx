@@ -133,22 +133,22 @@ export default function JoinUs() {
             [ THE EYE // ACCESS GATE ]
           </TypographySystem.MonoMedium>
           <div className="gate-controls">
-            <span className="gate-mode-label">MODE:</span>
+            <TypographySystem.Label className="gate-mode-label">MODE:</TypographySystem.Label>
             <button
               className={`gate-mode ${isLogin ? "active" : ""}`}
               onClick={() => switchMode("login")}
-            >
+            ><TypographySystem.Button>
               LOGIN
-            </button>
+            </TypographySystem.Button></button>
             <button
               className={`gate-mode ${!isLogin ? "active" : ""}`}
               onClick={() => switchMode("register")}
             >
-              REGISTER
+              <TypographySystem.Button>REGISTER</TypographySystem.Button>
             </button>
           </div>
           <Link to="/" className="gate-home">
-            HOME
+            <TypographySystem.Button>HOME</TypographySystem.Button>
           </Link>
         </header>
 
@@ -179,7 +179,11 @@ export default function JoinUs() {
               />
             )}
 
-            {alert.msg && <div className={`joinus-alert ${alert.type}`}>{alert.msg}</div>}
+            {alert.msg && (
+              <div className={`joinus-alert ${alert.type}`}>
+                <TypographySystem.BodySmall>{alert.msg}</TypographySystem.BodySmall>
+              </div>
+            )}
 
             <div className="gate-actions">
               <button className="retro-button dh-primary" disabled={!canSubmit || busy}>
@@ -207,12 +211,14 @@ export default function JoinUs() {
             <div className="gate-feed" ref={feedRef}>
               {currentUser && (
                 <div className="feed-line">
-                  USR: signed in as {currentUser.name} ({currentUser.email})
+                  <TypographySystem.MonoSmall>
+                    USR: signed in as {currentUser.name} ({currentUser.email})
+                  </TypographySystem.MonoSmall>
                 </div>
               )}
               {feed.map((line, idx) => (
                 <div className="feed-line" key={idx}>
-                  {line}
+                  <TypographySystem.MonoSmall>{line}</TypographySystem.MonoSmall>
                 </div>
               ))}
             </div>
@@ -239,7 +245,9 @@ export default function JoinUs() {
 function PromptField({ label, id, type = "text", value, onChange, placeholder }) {
   return (
     <div className="prompt-row">
-      <label htmlFor={id} className="prompt-label">{label}</label>
+      <label htmlFor={id} className="prompt-label">
+        <TypographySystem.MonoSmall>{label}</TypographySystem.MonoSmall>
+      </label>
       <input
         id={id}
         className="prompt-input"
