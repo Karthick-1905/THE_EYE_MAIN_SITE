@@ -54,6 +54,18 @@ function App() {
           waveSpeed={0.05}
         />
       </div>
+      {/* Global overlay to ensure consistent dark filter across all pages */}
+      <div
+        aria-hidden
+        style={{
+          position: "fixed",
+          inset: 0,
+          zIndex: 5,
+          pointerEvents: "none",
+          background: "linear-gradient(180deg, var(--overlay-start, rgba(0,0,0,0.18)), var(--overlay-end, rgba(0,0,0,0.36)))",
+        }}
+      />
+      <div style={{ position: "relative", zIndex: 10 }}>
       <Routes>
         <Route
           path="/"
@@ -73,6 +85,7 @@ function App() {
         <Route path="/events-management" element={<><EventsManagementPage /><Footer /></>} />
         <Route path="/design-and-publicity" element={<><DesignAndPublicityPage /><Footer /></>} />
       </Routes>
+      </div>
     </BrowserRouter>
   );
 }

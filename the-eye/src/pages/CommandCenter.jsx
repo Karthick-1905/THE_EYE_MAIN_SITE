@@ -20,7 +20,7 @@ export default function CommandCenterPage() {
                 <div className="text-[11px] text-neutral-500 uppercase tracking-wider font-medium">Total Active</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-light text-orange-500 mb-1 tabular-nums">44</div>
+                <div className="text-3xl font-bold text-white mb-1 tabular-nums">44</div>
                 <div className="text-[11px] text-neutral-500 uppercase tracking-wider font-medium">On Mission</div>
               </div>
               <div className="text-center">
@@ -65,7 +65,7 @@ export default function CommandCenterPage() {
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="text-lg font-light text-white tabular-nums group-hover:text-orange-400 transition-colors">
+                    <div className="text-lg font-light text-white tabular-nums group-hover:text-white group-hover:font-bold transition-colors">
                       {division.count}
                     </div>
                     <div className="text-[10px] text-neutral-600 uppercase tracking-wider">agents</div>
@@ -122,16 +122,16 @@ export default function CommandCenterPage() {
               ].map((log, index) => (
                 <div
                   key={index}
-                  className="text-xs border-l-2 border-orange-500 pl-3 hover:bg-neutral-800 p-2 rounded transition-colors"
+                  className="text-xs border-l-2 border-white/40 pl-3 hover:bg-neutral-800 p-2 rounded transition-colors"
                 >
                   <div className="text-neutral-500 font-mono">{log.time}</div>
                   <div className="text-white">
-                    Agent <span className="text-orange-500 font-mono">{log.agent}</span> {log.action}{" "}
+                    Agent <span className="text-white font-bold font-mono">{log.agent}</span> {log.action}{" "}
                     <span className="text-white font-mono">{log.location}</span>
                     {log.target && (
                       <span>
                         {" "}
-                        with agent <span className="text-orange-500 font-mono">{log.target}</span>
+                        with agent <span className="text-white font-bold font-mono">{log.target}</span>
                       </span>
                     )}
                   </div>
@@ -157,7 +157,7 @@ export default function CommandCenterPage() {
                 <span># 2025-06-17 14:23 UTC</span>
               </div>
               <div className="text-white">{"> [AGT:gh0stfire] ::: INIT >> ^^^ loading secure channel"}</div>
-              <div className="text-orange-500">{"> CH#2 | 1231.9082464.500...xR3"}</div>
+              <div className="text-white font-bold">{"> CH#2 | 1231.9082464.500...xR3"}</div>
               <div className="text-white">{"> KEY LOCKED"}</div>
               <div className="text-neutral-400">
                 {'> MSG >> "...mission override initiated... awaiting delta node clearance"'}
@@ -227,7 +227,7 @@ export default function CommandCenterPage() {
                         {func.id}
                       </div>
                       <div className={`w-1.5 h-1.5 rounded-full ${
-                        func.status === "active" ? "bg-white animate-pulse" : "bg-orange-500"
+                        func.status === "active" ? "bg-white animate-pulse" : "bg-white"
                       }`}></div>
                     </div>
                     <h3 className="text-xs font-bold text-white tracking-wider mb-0.5">
@@ -242,7 +242,7 @@ export default function CommandCenterPage() {
                   <div className="relative z-10 flex gap-3 mb-3 pb-3 border-b border-neutral-800">
                     {Object.entries(func.stats).map(([key, value]) => (
                       <div key={key} className="flex-1">
-                        <div className="text-lg font-light text-white tabular-nums group-hover:text-orange-400 transition-colors">
+                        <div className="text-lg font-light text-white tabular-nums group-hover:text-white group-hover:font-bold transition-colors">
                           {value}
                         </div>
                         <div className="text-[9px] text-neutral-500 uppercase tracking-wider">
@@ -259,14 +259,14 @@ export default function CommandCenterPage() {
                         key={idx}
                         className="text-[10px] text-neutral-400 hover:text-white transition-colors flex items-center gap-1"
                       >
-                        <span className="text-orange-500/50">▸</span>
+                        <span className="text-white/50">▸</span>
                         <span className="truncate">{topic}</span>
                       </div>
                     ))}
                   </div>
 
                   {/* Hover Effect Border */}
-                  <div className="absolute inset-0 border border-orange-500/0 group-hover:border-orange-500/20 rounded-lg transition-all duration-300 pointer-events-none"></div>
+                  <div className="absolute inset-0 border border-white/0 group-hover:border-white/20 rounded-lg transition-all duration-300 pointer-events-none"></div>
                 </div>
               ))}
             </div>
@@ -330,14 +330,14 @@ export default function CommandCenterPage() {
                       <span className="text-[9px] text-neutral-500">
                         <span className="text-white font-mono">{event.date}</span>
                       </span>
-                      <span className="text-[9px] text-orange-500/40">|</span>
+                      <span className="text-[9px] text-white/40">|</span>
                       <span className="text-[9px] text-neutral-500">{event.type}</span>
-                      <span className="text-[9px] text-orange-500/40">|</span>
+                      <span className="text-[9px] text-white/40">|</span>
                       <span className="text-[9px] text-neutral-500">
                         <span className="text-white font-mono">{event.attendees}</span> agents
                       </span>
                     </div>
-                    <span className="text-[10px] text-neutral-600 group-hover:text-orange-400 transition-colors">→</span>
+                    <span className="text-[10px] text-neutral-300 group-hover:text-white group-hover:font-bold transition-colors">→</span>
                   </div>
                 </div>
               ))}
@@ -351,7 +351,7 @@ export default function CommandCenterPage() {
                   <div className="text-[9px] text-neutral-500 uppercase">Upcoming</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-sm font-light text-orange-500 tabular-nums">1</div>
+                  <div className="text-sm font-bold text-white tabular-nums">1</div>
                   <div className="text-[9px] text-neutral-500 uppercase">Active</div>
                 </div>
                 <div className="text-center">
@@ -359,7 +359,7 @@ export default function CommandCenterPage() {
                   <div className="text-[9px] text-neutral-500 uppercase">Complete</div>
                 </div>
               </div>
-              <button className="text-[9px] text-orange-500 hover:text-orange-400 uppercase tracking-wider transition-colors">
+              <button className="text-[9px] text-white hover:font-bold uppercase tracking-wider transition-colors">
                 View All Events →
               </button>
             </div>

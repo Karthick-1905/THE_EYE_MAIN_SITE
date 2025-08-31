@@ -51,7 +51,8 @@
   padding: 80px 20px 40px;
   text-align: center;
   z-index: 10;
-  background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, transparent 100%);
+  /* Overlay handled globally; keep hero background transparent */
+  background: transparent;
 }
 
 .events-hero h1 {
@@ -182,7 +183,8 @@
   right: 0;
   bottom: 0;
   pointer-events: none;
-  background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.4) 70%);
+  /* Keep a subtle vignette that works with global overlay */
+  background: radial-gradient(circle at center, transparent 45%, rgba(0,0,0,0.08) 85%);
   z-index: 2;
 }
 
@@ -208,7 +210,8 @@
 /* Upcoming Events Section */
 .upcoming-events {
   padding: 60px 20px;
-  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8) 100%);
+  /* Neutral background; rely on global overlay */
+  background: transparent;
   position: relative;
   z-index: 10;
 }

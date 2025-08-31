@@ -22,12 +22,12 @@
   height: 60px;
   display: grid;
   place-items: center;
-  background: #ff6b35;
+  background: #ffffff;
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  border: 2px solid rgba(255, 107, 53, 0.3);
-  box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
   transition: all 0.3s ease;
 }
 
@@ -41,13 +41,13 @@
   letter-spacing: 0.05em;
   left: 1.6em;
   top: 50%;
-  text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.35);
 }
 
 .action-button-icon {
   user-select: none;
   position: relative;
-  color: #000;
+  color: #0f0f0f;
   top: 2px;
   font-size: 26px;
   font-family: 'Share Tech Mono', monospace;

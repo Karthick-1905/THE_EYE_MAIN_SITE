@@ -196,8 +196,8 @@
 }
 
 .status-value.online {
-  color: #00ff00;
-  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
   animation: pulse 2s infinite;
 }
 
@@ -218,7 +218,7 @@
 }
 
 .terminal-prompt {
-  color: #00ff00;
+  color: #ffffff;
   margin-right: 10px;
   font-weight: bold;
 }
@@ -331,21 +331,21 @@
 }
 
 .level-max {
-  color: #00ff00;
+  color: #ffffff;
   font-family: 'VT323', monospace;
   font-size: 1rem;
-  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
   animation: security-pulse 1.5s infinite;
 }
 
 @keyframes security-pulse {
   0%, 100% { 
     opacity: 1;
-    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
   }
   50% { 
     opacity: 0.8;
-    text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
   }
 }
 

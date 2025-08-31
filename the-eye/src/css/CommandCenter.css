@@ -71,14 +71,8 @@
 }
 
 /* Subtle overlay improves legibility against noisy bg */
-.cc-page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.36));
-  pointer-events: none;
-  z-index: 6;
-}
+/* Overlay handled globally in App.jsx to keep consistency */
+.cc-page::before { content: none; }
 
 /* Center like DitherHome */
 .cc-inner {

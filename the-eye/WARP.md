@@ -89,7 +89,7 @@ src/
 - **Typography System**: Custom typography components with cyberpunk styling and glitch effects
 - **CSS Architecture**: Component-scoped CSS files with retro/terminal aesthetics
 - **Tailwind Integration**: Utility classes combined with custom CSS for complex effects
-- **Theme**: Dark mode with green/orange accents, monospace fonts, dithered backgrounds
+- **Theme**: Dark mode with monochrome (white) accents, monospace fonts, dithered backgrounds
 
 ### State Management
 - Uses React hooks (useState, useRef, useEffect) for local component state

@@ -20,14 +20,8 @@
 }
 
 /* subtle dark overlay to improve contrast against the dither canvas */
-.dither-home::before{
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, rgba(0,0,0,0.18), rgba(0,0,0,0.36));
-  pointer-events: none;
-  z-index: 6;
-}
+/* Overlay handled globally in App.jsx to keep consistency */
+.dither-home::before{ content: none; }
 
 .dither-home-inner{
   width: 1100px;

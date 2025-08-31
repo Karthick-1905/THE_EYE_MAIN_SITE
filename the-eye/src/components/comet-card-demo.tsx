@@ -4,10 +4,12 @@ import cyberchxse from "@/assets/cyberchxse.jpg";
 
 export default function CometCardDemo() {
   return (
+    
     <CometCard>
       <button
         type="button"
-        aria-label="View invite F7RA"
+        aria-label="Open Cyber Chxse invitation"
+  onClick={() => window.open('https://cyber-chaxe.vercel.app', '_blank', 'noopener,noreferrer')}
         style={{
           // Size and layout (replace Tailwind utilities for this project)
           width: 320,
@@ -69,13 +71,7 @@ export default function CometCardDemo() {
         >
           <div style={{ fontWeight: 600 }}>Cyber Chxse Invitation</div>
           <div
-            role="link"
-            tabIndex={0}
-            onClick={() => (window.location.href = 'https://cyber-chaxe.vercel.app')}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') window.location.href = 'https://cyber-chaxe.vercel.app';
-            }}
-            style={{ color: '#d1d5db', opacity: 0.5, cursor: 'pointer' }}
+            style={{ color: '#d1d5db', opacity: 0.7 }}
           >
             Join US
           </div>

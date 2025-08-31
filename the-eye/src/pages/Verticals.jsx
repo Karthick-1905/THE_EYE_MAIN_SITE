@@ -2,6 +2,7 @@ import React from "react";
 import { CardCarousel } from "@/components/ui/card-carousel";
 import { TextScroll } from "@/components/ui/text-scroll";
 import TypographySystem from "@/components/TypographySystem";
+import '../css/Events.css';
 
 export default function Verticals() {
     const cards = [
@@ -28,11 +29,16 @@ export default function Verticals() {
   ]; 
   return (
     <div className="pt-40">
-      <TextScroll
-        text="The Eye - verticals"
-        default_velocity={5}
-        className="text-6xl font-roboto text-white"
-      />
+       <div className="events-title-container">
+        <div className="events-title-track">
+          <h1 className="events-main-title">
+            THE EYE - EVENTS & WORKSHOPS • THE EYE - EVENTS & WORKSHOPS • THE EYE - EVENTS & WORKSHOPS • THE EYE - EVENTS & WORKSHOPS • 
+          </h1>
+          <h1 className="events-main-title" aria-hidden="true">
+            THE EYE - EVENTS & WORKSHOPS • THE EYE - EVENTS & WORKSHOPS • THE EYE - EVENTS & WORKSHOPS • THE EYE - EVENTS & WORKSHOPS • 
+          </h1>
+        </div>
+      </div>
       <CardCarousel
         cards={cards}
         autoplayDelay={2000}
