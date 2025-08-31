@@ -1,57 +1,74 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-
+import CyberRadar from "@/components/AdvancedRadar"
+import Accordion from "@/components/Accordion"
+import TypographySystem from "@/components/TypographySystem"
 export default function CommandCenterPage() {
   return (
-    <div className="p-6 space-y-6 max-w-[80%] mx-auto">
+    <div className="p-6 space-y-6 max-w-[80%] mx-auto" style={{ fontFamily: "'Share Tech Mono', monospace" }}>
       {/* Main Dashboard Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Agent Status Overview */}
         <Card className="lg:col-span-4 bg-neutral-900 border-neutral-700">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-neutral-300 tracking-wider">AGENT ALLOCATION</CardTitle>
+          <CardHeader className="pb-4">
+            <CardTitle className="text-base text-neutral-200 tracking-[0.2em] uppercase" style={{ fontFamily: "'VT323', monospace" }}>AGENT ALLOCATION</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-3 gap-4 mb-6">
+            <div className="grid grid-cols-3 gap-5 mb-8 pb-6 border-b border-neutral-800">
               <div className="text-center">
-                <div className="text-2xl font-bold text-white font-mono">190</div>
-                <div className="text-xs text-neutral-500">Active Field</div>
+                <div className="text-3xl font-light text-white mb-1 tabular-nums">47</div>
+                <div className="text-[11px] text-neutral-500 uppercase tracking-wider font-medium">Total Active</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-white font-mono">990</div>
-                <div className="text-xs text-neutral-500">Undercover</div>
+                <div className="text-3xl font-light text-orange-500 mb-1 tabular-nums">44</div>
+                <div className="text-[11px] text-neutral-500 uppercase tracking-wider font-medium">On Mission</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-white font-mono">290</div>
-                <div className="text-xs text-neutral-500">Training</div>
+                <div className="text-3xl font-light text-white mb-1 tabular-nums">3</div>
+                <div className="text-[11px] text-neutral-500 uppercase tracking-wider font-medium">Available</div>
               </div>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-3">
               {[
-                { id: "G-078W", name: "VENGEFUL SPIRIT", status: "active" },
-                { id: "G-079X", name: "OBSIDIAN SENTINEL", status: "standby" },
-                { id: "G-080Y", name: "GHOSTLY FURY", status: "active" },
-                { id: "G-081Z", name: "CURSED REVENANT", status: "compromised" },
-              ].map((agent) => (
+                { id: "TECH-OPS", name: "Technical Operations", count: 15, status: "active" },
+                { id: "DES-VIS", name: "Design & Visualization", count: 8, status: "active" },
+                { id: "PUB-COM", name: "Publicity & Communications", count: 10, status: "active" },
+                { id: "EVT-MGT", name: "Event Management", count: 11, status: "active" },
+              ].map((division) => (
                 <div
-                  key={agent.id}
-                  className="flex items-center justify-between p-2 bg-neutral-800 rounded hover:bg-neutral-700 transition-colors cursor-pointer"
+                  key={division.id}
+                  className="group flex items-center justify-between p-3 bg-neutral-800/50 rounded-lg hover:bg-neutral-800 transition-all duration-200 cursor-pointer border border-transparent hover:border-neutral-700"
                 >
                   <div className="flex items-center gap-3">
-                    <div
-                      className={`w-2 h-2 rounded-full ${
-                        agent.status === "active"
-                          ? "bg-white"
-                          : agent.status === "standby"
-                            ? "bg-neutral-500"
-                            : "bg-red-500"
-                      }`}
-                    ></div>
-                    <div>
-                      <div className="text-xs text-white font-mono">{agent.id}</div>
-                      <div className="text-xs text-neutral-500">{agent.name}</div>
+                    <div className="relative">
+                      <div
+                        className={`w-2 h-2 rounded-full ${
+                          division.status === "active"
+                            ? "bg-white"
+                            : division.status === "standby"
+                              ? "bg-neutral-500"
+                              : "bg-red-500"
+                        }`}
+                      ></div>
+                      {division.status === "active" && (
+                        <div className="absolute inset-0 w-2 h-2 rounded-full bg-white animate-ping opacity-75"></div>
+                      )}
                     </div>
+                    <div className="flex-1">
+                      <div className="text-[10px] text-neutral-400 font-bold tracking-[0.15em] uppercase mb-0.5">
+                        {division.id}
+                      </div>
+                      <div className="text-xs text-neutral-300 font-medium leading-tight">
+                        {division.name}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="text-lg font-light text-white tabular-nums group-hover:text-orange-400 transition-colors">
+                      {division.count}
+                    </div>
+                    <div className="text-[10px] text-neutral-600 uppercase tracking-wider">agents</div>
                   </div>
                 </div>
               ))}
@@ -62,7 +79,7 @@ export default function CommandCenterPage() {
         {/* Activity Log */}
         <Card className="lg:col-span-4 bg-neutral-900 border-neutral-700">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-neutral-300 tracking-wider">ACTIVITY LOG</CardTitle>
+            <CardTitle className="text-base text-neutral-200 tracking-[0.2em] uppercase" style={{ fontFamily: "'VT323', monospace" }}>ACTIVITY LOG</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-3 max-h-80 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
@@ -127,114 +144,13 @@ export default function CommandCenterPage() {
         {/* Encrypted Chat Activity */}
         <Card className="lg:col-span-4 bg-neutral-900 border-neutral-700 scrollbar-hide">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-neutral-300 tracking-wider">
+            <CardTitle className="text-base text-neutral-200 tracking-[0.2em] uppercase" style={{ fontFamily: "'VT323', monospace" }}>
               ENCRYPTED CHAT ACTIVITY
             </CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col items-center">
-            {/* Radar Display */}
-            <div className="relative w-32 h-32 mb-4 bg-black rounded-full border border-gray-600 overflow-hidden">
-              {/* Static Radar Grid */}
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 128 128">
-                {/* Grid Circles */}
-                <circle cx="64" cy="64" r="60" fill="none" stroke="rgb(107 114 128 / 0.4)" strokeWidth="1"/>
-                <circle cx="64" cy="64" r="40" fill="none" stroke="rgb(107 114 128 / 0.3)" strokeWidth="1"/>
-                <circle cx="64" cy="64" r="20" fill="none" stroke="rgb(107 114 128 / 0.2)" strokeWidth="1"/>
-                
-                {/* Grid Lines */}
-                <line x1="4" y1="64" x2="124" y2="64" stroke="rgb(107 114 128 / 0.3)" strokeWidth="1"/>
-                <line x1="64" y1="4" x2="64" y2="124" stroke="rgb(107 114 128 / 0.3)" strokeWidth="1"/>
-                
-                {/* Center Dot */}
-                <circle cx="64" cy="64" r="2" fill="white"/>
-                
-                {/* Radar Sweep - Wider Wave */}
-                <defs>
-                  <radialGradient id="sweepGradient" cx="50%" cy="100%" r="60%">
-                    <stop offset="0%" stopColor="rgba(255,255,255,0.9)"/>
-                    <stop offset="30%" stopColor="rgba(255,255,255,0.6)"/>
-                    <stop offset="70%" stopColor="rgba(255,255,255,0.3)"/>
-                    <stop offset="100%" stopColor="rgba(255,255,255,0)"/>
-                  </radialGradient>
-                </defs>
-                
-                <g className="animate-spin" style={{ transformOrigin: '64px 64px', animationDuration: '4s', animationTimingFunction: 'linear' }}>
-                  <path
-                    d="M 64 64 L 64 4 A 60 60 0 0 1 104 24 Z"
-                    fill="url(#sweepGradient)"
-                    opacity="0.8"
-                  />
-                </g>
-                
-                {/* Random Activity Dots */}
-                <circle 
-                  cx="85" 
-                  cy="35" 
-                  r="1.5" 
-                  fill="white"
-                  className="animate-pulse"
-                  style={{ 
-                    animationDuration: '4s',
-                    animationDelay: '0.8s'
-                  }}
-                />
-                <circle 
-                  cx="45" 
-                  cy="25" 
-                  r="1.5" 
-                  fill="white"
-                  className="animate-pulse"
-                  style={{ 
-                    animationDuration: '4s',
-                    animationDelay: '2.1s'
-                  }}
-                />
-                <circle 
-                  cx="95" 
-                  cy="80" 
-                  r="1.5" 
-                  fill="white"
-                  className="animate-pulse"
-                  style={{ 
-                    animationDuration: '4s',
-                    animationDelay: '1.5s'
-                  }}
-                />
-                <circle 
-                  cx="35" 
-                  cy="75" 
-                  r="1.5" 
-                  fill="white"
-                  className="animate-pulse"
-                  style={{ 
-                    animationDuration: '4s',
-                    animationDelay: '3.2s'
-                  }}
-                />
-                <circle 
-                  cx="78" 
-                  cy="95" 
-                  r="1.5" 
-                  fill="white"
-                  className="animate-pulse"
-                  style={{ 
-                    animationDuration: '4s',
-                    animationDelay: '0.3s'
-                  }}
-                />
-                <circle 
-                  cx="50" 
-                  cy="45" 
-                  r="1.5" 
-                  fill="white"
-                  className="animate-pulse"
-                  style={{ 
-                    animationDuration: '4s',
-                    animationDelay: '2.8s'
-                  }}
-                />
-              </svg>
-            </div>
+            {/* Cyber Radar Display */}
+            <CyberRadar size={180} className="mb-4" />
 
             <div className="text-xs text-neutral-500 space-y-1 w-full font-mono">
               <div className="flex justify-between">
@@ -250,104 +166,202 @@ export default function CommandCenterPage() {
           </CardContent>
         </Card>
 
-        {/* Mission Activity Chart */}
+        {/* Core Functions */}
         <Card className="lg:col-span-8 bg-neutral-900 border-neutral-700">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-neutral-300 tracking-wider">
-              MISSION ACTIVITY OVERVIEW
-            </CardTitle>
+          <CardHeader className="pb-1">
+            <CardTitle className="text-base text-neutral-200 tracking-[0.2em] uppercase" style={{ fontFamily: "'VT323', monospace" }}>CORE FUNCTIONS</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="h-48 relative">
-              {/* Chart Grid */}
-              <div className="absolute inset-0 grid grid-cols-8 grid-rows-6 opacity-20">
-                {Array.from({ length: 48 }).map((_, i) => (
-                  <div key={i} className="border border-neutral-700"></div>
-                ))}
-              </div>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                {
+                  id: "01",
+                  title: "WORKSHOPS",
+                  subtitle: "Technical Training",
+                  stats: { upcoming: 3, completed: 12 },
+                  topics: ["Penetration Testing", "Reverse Engineering", "Web Security"],
+                  status: "active",
+                  icon: "▲"
+                },
+                {
+                  id: "02",
+                  title: "RESEARCH",
+                  subtitle: "Security Analysis",
+                  stats: { active: 5, published: 8 },
+                  topics: ["Zero-Day Discovery", "Malware Analysis", "Cryptography"],
+                  status: "active",
+                  icon: "◆"
+                },
+                {
+                  id: "03",
+                  title: "PROJECTS",
+                  subtitle: "Development Labs",
+                  stats: { ongoing: 5, completed: 10 },
+                  topics: ["Security Tools", "CTF Portal", "Open Source"],
+                  status: "active",
+                  icon: "■"
+                },
+                {
+                  id: "04",
+                  title: "EVENTS",
+                  subtitle: "Community Outreach",
+                  stats: { upcoming: 1, hosted: 20 },
+                  topics: ["Hackathons", "CTF Competitions", "Tech Talks"],
+                  status: "scheduled",
+                  icon: "●"
+                }
+              ].map((func) => (
+                <div
+                  key={func.id}
+                  className="group relative bg-neutral-800/30 border border-neutral-800 rounded-lg p-4 hover:bg-neutral-800/50 hover:border-neutral-700 transition-all duration-300 cursor-pointer overflow-hidden"
+                >
+                  {/* Background Pattern */}
+                  <div className="absolute top-0 right-0 text-6xl text-neutral-800/20 font-mono select-none">
+                    {func.icon}
+                  </div>
+                  
+                  {/* Header */}
+                  <div className="relative z-10 mb-3">
+                    <div className="flex items-start justify-between mb-1">
+                      <div className="text-[10px] font-bold text-neutral-500 tracking-[0.2em]">
+                        {func.id}
+                      </div>
+                      <div className={`w-1.5 h-1.5 rounded-full ${
+                        func.status === "active" ? "bg-white animate-pulse" : "bg-orange-500"
+                      }`}></div>
+                    </div>
+                    <h3 className="text-xs font-bold text-white tracking-wider mb-0.5">
+                      {func.title}
+                    </h3>
+                    <p className="text-[10px] text-neutral-400 font-medium">
+                      {func.subtitle}
+                    </p>
+                  </div>
 
-              {/* Chart Line */}
-              <svg className="absolute inset-0 w-full h-full">
-                <polyline
-                  points="0,120 50,100 100,110 150,90 200,95 250,85 300,100 350,80"
-                  fill="none"
-                  stroke="#f97316"
-                  strokeWidth="2"
-                />
-                <polyline
-                  points="0,140 50,135 100,130 150,125 200,130 250,135 300,125 350,120"
-                  fill="none"
-                  stroke="#ffffff"
-                  strokeWidth="2"
-                  strokeDasharray="5,5"
-                />
-              </svg>
+                  {/* Stats */}
+                  <div className="relative z-10 flex gap-3 mb-3 pb-3 border-b border-neutral-800">
+                    {Object.entries(func.stats).map(([key, value]) => (
+                      <div key={key} className="flex-1">
+                        <div className="text-lg font-light text-white tabular-nums group-hover:text-orange-400 transition-colors">
+                          {value}
+                        </div>
+                        <div className="text-[9px] text-neutral-500 uppercase tracking-wider">
+                          {key}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
 
-              {/* Y-axis labels */}
-              <div className="absolute left-0 top-0 h-full flex flex-col justify-between text-xs text-neutral-500 -ml-5 font-mono">
-                <span>500</span>
-                <span>400</span>
-                <span>300</span>
-                <span>200</span>
-              </div>
+                  {/* Topics */}
+                  <div className="relative z-10 space-y-1">
+                    {func.topics.map((topic, idx) => (
+                      <div
+                        key={idx}
+                        className="text-[10px] text-neutral-400 hover:text-white transition-colors flex items-center gap-1"
+                      >
+                        <span className="text-orange-500/50">▸</span>
+                        <span className="truncate">{topic}</span>
+                      </div>
+                    ))}
+                  </div>
 
-              {/* X-axis labels */}
-              <div className="absolute bottom-0 left-0 w-full flex justify-between text-xs text-neutral-500 -mb-6 font-mono">
-                <span>Jan 28, 2025</span>
-                <span>Feb 28, 2025</span>
+                  {/* Hover Effect Border */}
+                  <div className="absolute inset-0 border border-orange-500/0 group-hover:border-orange-500/20 rounded-lg transition-all duration-300 pointer-events-none"></div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Bottom Summary Bar */}
+            <div className="mt-6 pt-4 border-t border-neutral-800 flex items-center justify-between">
+              
+              <div className="text-[10px] text-neutral-500 font-mono">
+                LAST SYNC: 2025.06.25 09:45:00 UTC
               </div>
             </div>
           </CardContent>
         </Card>
 
-        {/* Mission Information */}
-        <Card className="lg:col-span-4 bg-neutral-900 border-neutral-700">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-neutral-300 tracking-wider">MISSION INFORMATION</CardTitle>
+        {/* Event Log */}
+        <Card className="lg:col-span-4 bg-neutral-900 border-neutral-700 gap-0">
+          <CardHeader className="pb-1">
+            <CardTitle className="text-base text-neutral-200 tracking-[0.2em] uppercase mb-1" style={{ fontFamily: "'VT323', monospace" }}>EVENT LOG</CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              <div>
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-xs text-white font-medium">Successful Missions</span>
+          <CardContent className="h-full">
+            <div className="space-y-2">
+              {[
+                {
+                  id: "EVT-001",
+                  title: "The Pandemic That Never Happened",
+                  date: "2025.07.15",
+                  type: "Workshop",
+                  status: "upcoming",
+                  attendees: 45,
+                  description: "Advanced malware analysis and reverse engineering workshop"
+                },
+                
+                {
+                  id: "EVT-002",
+                  title: "EtherX Summit",
+                  date: "2025.06.20",
+                  type: "Conference",
+                  status: "completed",
+                  attendees: 89,
+                  description: "Blockchain security and smart contract auditing summit"
+                },
+                
+              ].map((event) => (
+                <div
+                  key={event.id}
+                  className="group p-3 bg-neutral-800/30 hover:bg-neutral-800/50 rounded-lg border border-neutral-800 hover:border-neutral-700 transition-all duration-200 cursor-pointer"
+                >
+                  <div className="flex items-start justify-between mb-2">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-1">
+                        <span className="text-[9px] text-neutral-500 font-bold tracking-wider">{event.id}</span>
+                       
+                      </div>
+                      <h4 className="text-xs text-white font-medium mb-1">{event.title}</h4>
+                      <p className="text-[10px] text-neutral-400 leading-relaxed">{event.description}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center justify-between mt-2 pt-2 border-t border-neutral-800/50">
+                    <div className="flex items-center gap-3">
+                      <span className="text-[9px] text-neutral-500">
+                        <span className="text-white font-mono">{event.date}</span>
+                      </span>
+                      <span className="text-[9px] text-orange-500/40">|</span>
+                      <span className="text-[9px] text-neutral-500">{event.type}</span>
+                      <span className="text-[9px] text-orange-500/40">|</span>
+                      <span className="text-[9px] text-neutral-500">
+                        <span className="text-white font-mono">{event.attendees}</span> agents
+                      </span>
+                    </div>
+                    <span className="text-[10px] text-neutral-600 group-hover:text-orange-400 transition-colors">→</span>
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <div className="flex justify-between text-xs">
-                    <span className="text-neutral-400">High Risk Mission</span>
-                    <span className="text-white font-bold font-mono">190</span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-neutral-400">Medium Risk Mission</span>
-                    <span className="text-white font-bold font-mono">426</span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-neutral-400">Low Risk Mission</span>
-                    <span className="text-white font-bold font-mono">920</span>
-                  </div>
+              ))}
+            </div>
+            
+            {/* Summary Bar */}
+            <div className="mt-4 pt-3 border-t border-neutral-800 flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="text-center">
+                  <div className="text-sm font-light text-white tabular-nums">2</div>
+                  <div className="text-[9px] text-neutral-500 uppercase">Upcoming</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-sm font-light text-orange-500 tabular-nums">1</div>
+                  <div className="text-[9px] text-neutral-500 uppercase">Active</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-sm font-light text-white tabular-nums">1</div>
+                  <div className="text-[9px] text-neutral-500 uppercase">Complete</div>
                 </div>
               </div>
-
-              <div>
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                  <span className="text-xs text-red-500 font-medium">Failed Missions</span>
-                </div>
-                <div className="space-y-2">
-                  <div className="flex justify-between text-xs">
-                    <span className="text-neutral-400">High Risk Mission</span>
-                    <span className="text-white font-bold font-mono">190</span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-neutral-400">Medium Risk Mission</span>
-                    <span className="text-white font-bold font-mono">426</span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-neutral-400">Low Risk Mission</span>
-                    <span className="text-white font-bold font-mono">920</span>
-                  </div>
-                </div>
-              </div>
+              <button className="text-[9px] text-orange-500 hover:text-orange-400 uppercase tracking-wider transition-colors">
+                View All Events →
+              </button>
             </div>
           </CardContent>
         </Card>

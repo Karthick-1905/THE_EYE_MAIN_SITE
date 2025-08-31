@@ -24,7 +24,7 @@ export default function Accordion() {
       <div className="bg-transparent text-white h-full flex flex-col gap-1 w-full max-w-xl ">
         {/** Heading using TypographySystem */}
         <TypographySystem.HeadlineLarge className="mb-6">
-          EVENTS
+          EVENT LOG
         </TypographySystem.HeadlineLarge>
 
         <div className="divide-y divide-gray-600">

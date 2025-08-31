@@ -1,0 +1,53 @@
+/* Advanced Radar Component Styles */
+
+.radar-container {
+  position: relative;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 20, 10, 0.9) 0%, rgba(0, 10, 5, 1) 100%);
+  box-shadow: 
+    inset 0 0 20px rgba(0, 255, 100, 0.1),
+    0 0 40px rgba(0, 255, 100, 0.2);
+}
+
+/* Pulse animation for center */
+@keyframes radar-pulse {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 0.3; 
+    transform: scale(1.8); 
+  }
+}
+
+/* Subtle glow for targets */
+@keyframes target-glow {
+  0%, 100% { 
+    opacity: 0.8; 
+  }
+  50% { 
+    opacity: 1; 
+    filter: brightness(1.2);
+  }
+}
+
+/* Sweep trail animation */
+@keyframes sweep-trail {
+  0% { 
+    opacity: 1; 
+  }
+  100% { 
+    opacity: 0.2; 
+  }
+}
+
+/* Range marker fade */
+.range-marker {
+  animation: fade-in-out 3s ease-in-out infinite;
+}
+
+@keyframes fade-in-out {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}

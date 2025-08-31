@@ -1,0 +1,133 @@
+/* Note: this CSS is only an example, you can overlay whatever you want using the activeItem logic */
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap');
+
+#infinite-grid-menu-canvas {
+  cursor: grab;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  outline: none;
+}
+
+#infinite-grid-menu-canvas:active {
+  cursor: grabbing;
+}
+
+.action-button {
+  position: absolute;
+  left: 50%;
+  z-index: 10;
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  background: #ff6b35;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid rgba(255, 107, 53, 0.3);
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+  transition: all 0.3s ease;
+}
+
+.face-title {
+  user-select: none;
+  position: absolute;
+  font-weight: 400;
+  font-size: 4.5rem;
+  font-family: 'VT323', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  left: 1.6em;
+  top: 50%;
+  text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+}
+
+.action-button-icon {
+  user-select: none;
+  position: relative;
+  color: #000;
+  top: 2px;
+  font-size: 26px;
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: bold;
+}
+
+.face-title {
+  position: absolute;
+  top: 10%;
+  transform: translate(20%, -50%);
+  color: #ffffff;
+}
+
+.face-title.active {
+  opacity: 1;
+  transform: translate(20%, -50%);
+  pointer-events: auto;
+  transition: 0.5s ease;
+}
+
+.face-title.inactive {
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.1s ease;
+}
+
+.face-description {
+  user-select: none;
+  position: absolute;
+  max-width: 20ch;
+  top: 70%;
+  font-size: 1.6rem;
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  right: -1%;
+  transform: translate(70%, -50%);
+  color: whitesmoke;
+}
+
+.face-description.active {
+  opacity: 1;
+  transform: translate(-90%, -50%);
+  pointer-events: auto;
+  transition: 0.5s ease;
+}
+
+.face-description.inactive {
+  pointer-events: none;
+  transform: translate(-60%, -50%);
+  opacity: 0;
+  transition: 0.1s ease;
+}
+
+.action-button {
+  position: absolute;
+  left: 50%;
+}
+
+.action-button.active {
+  bottom: 3.8em;
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+  transition: 0.5s ease;
+}
+
+
+
+
+.action-button.inactive {
+  bottom: -80px;
+  transform: translateX(-50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.1s ease;
+}
+
+@media (max-width: 1500px) {
+  .face-title, .face-description {
+    display: none;
+  }
+}

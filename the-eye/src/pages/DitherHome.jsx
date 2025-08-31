@@ -139,7 +139,7 @@ export default function DitherHome() {
                 maxWidth: 360,
               }}
             >
-              <CometCardDemo />
+          <CometCardDemo />
             </div>
             <div
               style={{
