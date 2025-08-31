@@ -8,6 +8,7 @@ import LOGO_FINAL_SQUARE from "../assets/LOGO_FINAL_SQUARE.png";
 import tplogo from "../assets/tplogo.png";
 import CometCardDemo from "../components/comet-card-demo";
 import { World } from "@/components/ui/globe";
+import TypeIt from "typeit-react";
 // import DraggableCardDemo from '@/components/draggable-card-demo';
 
 export default function DitherHome() {
@@ -113,18 +114,105 @@ export default function DitherHome() {
 
             {/* HERO STATS */}
             <ul className="dh-stats" aria-label="System statistics">
-              {[
-                { value: "127", label: "ACTIVE SCANS" },
-                { value: "0", label: "VULNERABILITIES" },
-                { value: "MAX", label: "SECURITY" },
-              ].map((stat) => (
-                <li key={stat.label}>
-                  <TypographySystem.HeadlineSmall>
-                    {stat.value}
-                  </TypographySystem.HeadlineSmall>
-                  <TypographySystem.Label>{stat.label}</TypographySystem.Label>
-                </li>
-              ))}
+              <li>
+                <TypographySystem.HeadlineSmall>
+                  <TypeIt
+                    options={{ 
+                      cursor: false, 
+                      speed: 30
+                    }}
+                  >
+                    127
+                  </TypeIt>
+                </TypographySystem.HeadlineSmall>
+                <TypographySystem.Label>
+                  <TypeIt
+                    getBeforeInit={(instance) => {
+                      instance
+                        .type("TCTIVE")
+                        .pause(750).move(-5, {delay: 40})
+                        .delete(1)
+                        .pause(100)
+                        .type("A").move(5, {delay: 40})
+                        .type("SCANS");
+                      return instance;
+                    }}
+                    options={{ 
+                      cursor: false, 
+                      speed: 30,
+                      startDelay: 90
+                    }}
+                  />
+                </TypographySystem.Label>
+              </li>
+              
+              <li>
+                <TypographySystem.HeadlineSmall>
+                  <TypeIt
+                    getBeforeInit={(instance) => {
+                      instance
+                        .type("2").pause(750).delete(1)
+                        .type(1).pause(500).delete(1).pause(300)
+                        .type("0");
+                      return instance;
+                    }}
+                    options={{ 
+                      cursor: false, 
+                      speed: 75,
+                      startDelay: 4000
+                    }}
+                  />
+                </TypographySystem.HeadlineSmall>
+                <TypographySystem.Label>
+                  <TypeIt
+                    getBeforeInit={(instance) => {
+                      instance
+                        .type("VULNERABILITIES");
+                      return instance;
+                    }}
+                    options={{ 
+                      cursor: false, 
+                      speed: 75,
+                      startDelay: 7000
+                    }}
+                  />
+                </TypographySystem.Label>
+              </li>
+              
+              <li>
+                <TypographySystem.HeadlineSmall>
+                  <TypeIt
+                    getBeforeInit={(instance) => {
+                      instance
+                        .type("LOW")
+                        .pause(750)
+                        .delete(3)
+                        .pause(300)
+                        .type("MAX");
+                      return instance;
+                    }}
+                    options={{ 
+                      cursor: true, 
+                      speed: 30,
+                      startDelay: 9000
+                    }}
+                  />
+                </TypographySystem.HeadlineSmall>
+                <TypographySystem.Label>
+                  <TypeIt
+                    getBeforeInit={(instance) => {
+                      instance
+                        .type("SECURITY");
+                      return instance;
+                    }}
+                    options={{ 
+                      cursor: false, 
+                      speed: 30,
+                      startDelay: 11000
+                    }}
+                  />
+                </TypographySystem.Label>
+              </li>
             </ul>
           </div>
 

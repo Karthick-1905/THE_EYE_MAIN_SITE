@@ -1,5 +1,7 @@
 import { CometCard } from "@/components/ui/comet-card";
 
+import cyberchxse from "@/assets/cyberchxse.jpg";
+
 export default function CometCardDemo() {
   return (
     <CometCard>
@@ -38,7 +40,7 @@ export default function CometCardDemo() {
             <img
               loading="lazy"
               alt="Invite background"
-              src="https://images.unsplash.com/photo-1505506874110-6a7a69069a08?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src={cyberchxse}
               style={{
                 position: 'absolute',
                 inset: 0,
@@ -65,8 +67,18 @@ export default function CometCardDemo() {
             fontSize: 12,
           }}
         >
-          <div>Comet Invitation</div>
-          <div style={{ color: '#d1d5db', opacity: 0.5 }}>#F7RA</div>
+          <div style={{ fontWeight: 600 }}>Cyber Chxse Invitation</div>
+          <div
+            role="link"
+            tabIndex={0}
+            onClick={() => (window.location.href = 'https://cyber-chaxe.vercel.app')}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') window.location.href = 'https://cyber-chaxe.vercel.app';
+            }}
+            style={{ color: '#d1d5db', opacity: 0.5, cursor: 'pointer' }}
+          >
+            Join US
+          </div>
         </div>
       </button>
     </CometCard>

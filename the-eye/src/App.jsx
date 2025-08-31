@@ -14,6 +14,9 @@ import gsap from "gsap";
 import { useEffect } from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "lenis";
+import { Events } from "./pages/Events";
+import Footer from "./components/Footer";
+
 function App() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -58,15 +61,17 @@ function App() {
             <>
               <DitherHome />
               <CommandCenter />
+              <Events/>
               <Verticals />
+              <Footer />
             </>
           }
         />
-        <Route path="/join" element={<JoinUs />} />
-        <Route path="/projects-and-research" element={<ProjectsAndResearchPage />} />
-        <Route path="/events-resources" element={<EventsResourcesPage />} />
-        <Route path="/events-management" element={<EventsManagementPage />} />
-        <Route path="/design-and-publicity" element={<DesignAndPublicityPage />} />
+        <Route path="/join" element={<><JoinUs /><Footer /></>} />
+        <Route path="/projects-and-research" element={<><ProjectsAndResearchPage /><Footer /></>} />
+        <Route path="/events-resources" element={<><EventsResourcesPage /><Footer /></>} />
+        <Route path="/events-management" element={<><EventsManagementPage /><Footer /></>} />
+        <Route path="/design-and-publicity" element={<><DesignAndPublicityPage /><Footer /></>} />
       </Routes>
     </BrowserRouter>
   );
